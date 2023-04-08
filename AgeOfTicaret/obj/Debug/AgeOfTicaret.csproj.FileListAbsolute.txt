@@ -1,0 +1,13 @@
+C:\Users\303\source\repos\AgeOfTicaret\AgeOfTicaret\bin\Debug\AgeOfTicaret.exe.config
+C:\Users\303\source\repos\AgeOfTicaret\AgeOfTicaret\bin\Debug\AgeOfTicaret.exe
+C:\Users\303\source\repos\AgeOfTicaret\AgeOfTicaret\bin\Debug\AgeOfTicaret.pdb
+C:\Users\303\source\repos\AgeOfTicaret\AgeOfTicaret\obj\Debug\AgeOfTicaret.csproj.AssemblyReference.cache
+C:\Users\303\source\repos\AgeOfTicaret\AgeOfTicaret\obj\Debug\AgeOfTicaret.csproj.SuggestedBindingRedirects.cache
+C:\Users\303\source\repos\AgeOfTicaret\AgeOfTicaret\obj\Debug\AgeOfTicaret.GirisForm.resources
+C:\Users\303\source\repos\AgeOfTicaret\AgeOfTicaret\obj\Debug\AgeOfTicaret.Properties.Resources.resources
+C:\Users\303\source\repos\AgeOfTicaret\AgeOfTicaret\obj\Debug\AgeOfTicaret.csproj.GenerateResource.cache
+C:\Users\303\source\repos\AgeOfTicaret\AgeOfTicaret\obj\Debug\AgeOfTicaret.csproj.CoreCompileInputs.cache
+C:\Users\303\source\repos\AgeOfTicaret\AgeOfTicaret\obj\Debug\AgeOfTicaret.exe
+C:\Users\303\source\repos\AgeOfTicaret\AgeOfTicaret\obj\Debug\AgeOfTicaret.pdb
+C:\Users\303\source\repos\AgeOfTicaret\AgeOfTicaret\obj\Debug\AgeOfTicaret.AnaForm.resources
+C:\Users\303\source\repos\AgeOfTicaret\AgeOfTicaret\obj\Debug\AgeOfTicaret.KategoriIslemleriForm.resources
