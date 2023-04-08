@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgeOfTicaret", "AgeOfTicaret\AgeOfTicaret.csproj", "{A9921FA8-4E1B-4B73-A82C-907FE47696DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{340FCCEF-D5C7-4DF2-B162-6AE01A234CBC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A9921FA8-4E1B-4B73-A82C-907FE47696DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9921FA8-4E1B-4B73-A82C-907FE47696DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9921FA8-4E1B-4B73-A82C-907FE47696DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{340FCCEF-D5C7-4DF2-B162-6AE01A234CBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{340FCCEF-D5C7-4DF2-B162-6AE01A234CBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{340FCCEF-D5C7-4DF2-B162-6AE01A234CBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{340FCCEF-D5C7-4DF2-B162-6AE01A234CBC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

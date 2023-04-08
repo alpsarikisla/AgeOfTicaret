@@ -101,5 +101,11 @@
     <Content Include="Resimler\20944201.jpg" />
     <Content Include="Resimler\2853458.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{340fccef-d5c7-4df2-b162-6ae01a234cbc}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

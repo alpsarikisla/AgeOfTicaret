@@ -33,10 +33,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_kapat = new System.Windows.Forms.Button();
             this.btn_giri = new System.Windows.Forms.Button();
             this.tb_sifre = new System.Windows.Forms.TextBox();
             this.tb_kullaniciAdi = new System.Windows.Forms.TextBox();
-            this.btn_kapat = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -84,6 +84,16 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Kullanıcı Adı:";
             // 
+            // btn_kapat
+            // 
+            this.btn_kapat.Location = new System.Drawing.Point(244, 123);
+            this.btn_kapat.Name = "btn_kapat";
+            this.btn_kapat.Size = new System.Drawing.Size(86, 23);
+            this.btn_kapat.TabIndex = 1;
+            this.btn_kapat.Text = "Kapat";
+            this.btn_kapat.UseVisualStyleBackColor = true;
+            this.btn_kapat.Click += new System.EventHandler(this.btn_kapat_Click);
+            // 
             // btn_giri
             // 
             this.btn_giri.Location = new System.Drawing.Point(116, 123);
@@ -100,6 +110,7 @@
             this.tb_sifre.Name = "tb_sifre";
             this.tb_sifre.Size = new System.Drawing.Size(214, 20);
             this.tb_sifre.TabIndex = 0;
+            this.tb_sifre.Text = "1234";
             this.tb_sifre.UseSystemPasswordChar = true;
             // 
             // tb_kullaniciAdi
@@ -108,16 +119,7 @@
             this.tb_kullaniciAdi.Name = "tb_kullaniciAdi";
             this.tb_kullaniciAdi.Size = new System.Drawing.Size(214, 20);
             this.tb_kullaniciAdi.TabIndex = 0;
-            // 
-            // btn_kapat
-            // 
-            this.btn_kapat.Location = new System.Drawing.Point(244, 123);
-            this.btn_kapat.Name = "btn_kapat";
-            this.btn_kapat.Size = new System.Drawing.Size(86, 23);
-            this.btn_kapat.TabIndex = 1;
-            this.btn_kapat.Text = "Kapat";
-            this.btn_kapat.UseVisualStyleBackColor = true;
-            this.btn_kapat.Click += new System.EventHandler(this.btn_kapat_Click);
+            this.tb_kullaniciAdi.Text = "admin";
             // 
             // GirisForm
             // 
