@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace AgeOfTicaret
     public partial class GirisForm : Form
     {
         bool girisVar = false;
+        DataModel dm = new DataModel();
         public GirisForm()
         {
             InitializeComponent();
@@ -22,8 +24,10 @@ namespace AgeOfTicaret
         {
             if (!string.IsNullOrEmpty(tb_kullaniciAdi.Text) && !string.IsNullOrEmpty(tb_sifre.Text))
             {
-                if (tb_kullaniciAdi.Text == "admin" && tb_sifre.Text == "1234")
+                Employee model = dm.EmployeeLogin(tb_kullaniciAdi.Text, tb_sifre.Text);
+                if (model.UserName != null)
                 {
+                    Helpers.GirisYapanKullanici = model;
                     girisVar = true;
                     this.Close();
                 }

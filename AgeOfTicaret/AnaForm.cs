@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,13 +22,52 @@ namespace AgeOfTicaret
         {
             GirisForm frm = new GirisForm();
             frm.ShowDialog();
+            Employee model = Helpers.GirisYapanKullanici;
+            TSSL_kullanici.Text = model.FullName + "(" + model.UserName  +")";
         }
 
         private void TSMI_Kategoriler_Click(object sender, EventArgs e)
         {
-            KategoriIslemleriForm frm = new KategoriIslemleriForm();
-            frm.MdiParent = this;
-            frm.Show();
+            bool acikmi = false;
+            Form[] acikformlar = this.MdiChildren;
+
+            foreach (Form item in acikformlar)
+            {
+                if (item.GetType() == typeof(KategoriIslemleriForm))
+                {
+                    acikmi = true;
+                    item.Activate();
+                }
+            }
+
+            if (acikmi == false)
+            {
+                KategoriIslemleriForm frm = new KategoriIslemleriForm();
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
+
+        private void TSMI_Urunler_Click(object sender, EventArgs e)
+        {
+            bool acikmi = false;
+            Form[] acikformlar = this.MdiChildren;
+
+            foreach (Form item in acikformlar)
+            {
+                if (item.GetType() == typeof(UrunIslemleriForm))
+                {
+                    acikmi = true;
+                    item.Activate();
+                }
+            }
+
+            if (acikmi == false)
+            {
+                UrunIslemleriForm frm = new UrunIslemleriForm();
+                frm.MdiParent = this;
+                frm.Show();
+            }
         }
     }
 }

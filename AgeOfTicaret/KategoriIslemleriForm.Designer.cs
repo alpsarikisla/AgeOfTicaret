@@ -31,17 +31,17 @@
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tb_id = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tb_isim = new System.Windows.Forms.TextBox();
+            this.btn_guncelle = new System.Windows.Forms.Button();
             this.btn_Ekle = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.tb_aciklama = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tb_isim = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tb_id = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.TSMI_Guncelle = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_Sil = new System.Windows.Forms.ToolStripMenuItem();
-            this.btn_guncelle = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -76,38 +76,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kategori Bilgileri";
             // 
-            // label1
+            // btn_guncelle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Kategori ID:";
-            // 
-            // tb_id
-            // 
-            this.tb_id.Enabled = false;
-            this.tb_id.Location = new System.Drawing.Point(100, 37);
-            this.tb_id.Name = "tb_id";
-            this.tb_id.Size = new System.Drawing.Size(215, 20);
-            this.tb_id.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(66, 66);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(28, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Isim:";
-            // 
-            // tb_isim
-            // 
-            this.tb_isim.Location = new System.Drawing.Point(100, 63);
-            this.tb_isim.Name = "tb_isim";
-            this.tb_isim.Size = new System.Drawing.Size(215, 20);
-            this.tb_isim.TabIndex = 1;
+            this.btn_guncelle.Location = new System.Drawing.Point(342, 115);
+            this.btn_guncelle.Name = "btn_guncelle";
+            this.btn_guncelle.Size = new System.Drawing.Size(75, 23);
+            this.btn_guncelle.TabIndex = 2;
+            this.btn_guncelle.Text = "Güncelle";
+            this.btn_guncelle.UseVisualStyleBackColor = true;
+            this.btn_guncelle.Visible = false;
+            this.btn_guncelle.Click += new System.EventHandler(this.btn_guncelle_Click);
             // 
             // btn_Ekle
             // 
@@ -119,6 +97,14 @@
             this.btn_Ekle.UseVisualStyleBackColor = true;
             this.btn_Ekle.Click += new System.EventHandler(this.btn_Ekle_Click);
             // 
+            // tb_aciklama
+            // 
+            this.tb_aciklama.Location = new System.Drawing.Point(100, 89);
+            this.tb_aciklama.Multiline = true;
+            this.tb_aciklama.Name = "tb_aciklama";
+            this.tb_aciklama.Size = new System.Drawing.Size(215, 49);
+            this.tb_aciklama.TabIndex = 1;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -128,13 +114,38 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Açıklama:";
             // 
-            // tb_aciklama
+            // tb_isim
             // 
-            this.tb_aciklama.Location = new System.Drawing.Point(100, 89);
-            this.tb_aciklama.Multiline = true;
-            this.tb_aciklama.Name = "tb_aciklama";
-            this.tb_aciklama.Size = new System.Drawing.Size(215, 49);
-            this.tb_aciklama.TabIndex = 1;
+            this.tb_isim.Location = new System.Drawing.Point(100, 63);
+            this.tb_isim.Name = "tb_isim";
+            this.tb_isim.Size = new System.Drawing.Size(215, 20);
+            this.tb_isim.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(66, 66);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(28, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Isim:";
+            // 
+            // tb_id
+            // 
+            this.tb_id.Enabled = false;
+            this.tb_id.Location = new System.Drawing.Point(100, 37);
+            this.tb_id.Name = "tb_id";
+            this.tb_id.Size = new System.Drawing.Size(215, 20);
+            this.tb_id.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(31, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Kategori ID:";
             // 
             // contextMenuStrip1
             // 
@@ -142,7 +153,7 @@
             this.TSMI_Guncelle,
             this.TSMI_Sil});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(121, 48);
             // 
             // TSMI_Guncelle
             // 
@@ -154,20 +165,9 @@
             // TSMI_Sil
             // 
             this.TSMI_Sil.Name = "TSMI_Sil";
-            this.TSMI_Sil.Size = new System.Drawing.Size(180, 22);
+            this.TSMI_Sil.Size = new System.Drawing.Size(120, 22);
             this.TSMI_Sil.Text = "Sil";
             this.TSMI_Sil.Click += new System.EventHandler(this.TSMI_Sil_Click);
-            // 
-            // btn_guncelle
-            // 
-            this.btn_guncelle.Location = new System.Drawing.Point(342, 115);
-            this.btn_guncelle.Name = "btn_guncelle";
-            this.btn_guncelle.Size = new System.Drawing.Size(75, 23);
-            this.btn_guncelle.TabIndex = 2;
-            this.btn_guncelle.Text = "Güncelle";
-            this.btn_guncelle.UseVisualStyleBackColor = true;
-            this.btn_guncelle.Visible = false;
-            this.btn_guncelle.Click += new System.EventHandler(this.btn_guncelle_Click);
             // 
             // KategoriIslemleriForm
             // 

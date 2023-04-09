@@ -17,6 +17,8 @@ namespace DataAccessLayer
             cmd = con.CreateCommand();
         }
 
+        #region Category Functions
+
         public List<Category> GetCategories()
         {
             List<Category> categories = new List<Category>();
@@ -90,7 +92,6 @@ namespace DataAccessLayer
                 con.Close();
             }
         }
-
         public bool UpdateCategory(Category model)
         {
             try
@@ -128,5 +129,87 @@ namespace DataAccessLayer
                 con.Close();
             }
         }
+
+        #endregion
+
+        #region Employee Functions
+
+
+        public Employee GetEmployee(int id)
+        {
+            try
+            {
+                Employee model = new Employee();
+                cmd.CommandText = "SELECT [EmployeeID],[UserName],[Password],[LastName],[FirstName],[Title],[TitleOfCourtesy],[BirthDate],[HireDate],[Address],[City],[Region],[PostalCode],[Country],[HomePhone],[Extension],[Notes],[ReportsTo],[PhotoPath],[TitleOfCourtesy] +' '+ [FirstName] + ' ' + [LastName] AS Fullname FROM Employees WHERE EmployeeID = @id";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+                if (con.State != System.Data.ConnectionState.Open)
+                {
+                    con.Open();
+                }
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    model.EmployeeID = reader.GetInt32(0);
+                    model.UserName = reader.GetString(1);
+                    model.Password = reader.GetString(2);
+                    model.LastName = reader.GetString(3);
+                    model.FirstName = reader.GetString(4);
+                    model.Title = reader.GetString(5);
+                    model.TitleOfCourtesy = reader.GetString(6);
+                    model.BirthDate = reader.GetDateTime(7);
+                    model.HireDate = reader.GetDateTime(8);
+                    model.Address = reader.GetString(9);
+                    model.City = reader.GetString(10);
+                    model.Region = !reader.IsDBNull(11) ? reader.GetString(11): "";
+                    model.PostalCode = reader.GetString(12);
+                    model.Country = reader.GetString(13);
+                    model.HomePhone = reader.GetString(14);
+                    model.Extension = reader.GetString(15);
+                    model.Notes = reader.GetString(16);
+                    model.ReportsTo = !reader.IsDBNull(17) ? reader.GetInt32(17) : 0;
+                    model.PhotoPath = reader.GetString(18);
+                    model.FullName = reader.GetString(19);
+                }
+                return model;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public Employee EmployeeLogin(string username, string password)
+        {
+            Employee model = new Employee();
+            try
+            {
+                cmd.CommandText = "SELECT EmployeeID FROM Employees WHERE UserName=@userName AND Password = @password";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@userName", username);
+                cmd.Parameters.AddWithValue("@password", password);
+                con.Open();
+                int id = Convert.ToInt32(cmd.ExecuteScalar());
+                if (id > 0)
+                {
+                    model = GetEmployee(id);
+                }
+                return model;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        #endregion
     }
 }

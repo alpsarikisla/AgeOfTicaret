@@ -119,7 +119,7 @@
             this.tb_kullaniciAdi.Name = "tb_kullaniciAdi";
             this.tb_kullaniciAdi.Size = new System.Drawing.Size(214, 20);
             this.tb_kullaniciAdi.TabIndex = 0;
-            this.tb_kullaniciAdi.Text = "admin";
+            this.tb_kullaniciAdi.Text = "n.davolio";
             // 
             // GirisForm
             // 
