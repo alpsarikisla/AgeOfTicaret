@@ -256,6 +256,38 @@ namespace DataAccessLayer
             }
         }
 
+        public bool AddProduct(Product model)
+        {
+            try
+            {
+                cmd.CommandText = "INSERT INTO Products(ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued, Barcode, IsFastProduct, ImagePath ) VALUES (@ProductName, @SupplierID, @CategoryID, @QuantityPerUnit, @UnitPrice, @UnitsInStock, @UnitsOnOrder, @ReorderLevel, @Discontinued, @Barcode, @IsFastProduct, @ImagePath)";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@ProductName", model.ProductName);
+                cmd.Parameters.AddWithValue("@SupplierID", model.SupplierID);
+                cmd.Parameters.AddWithValue("@CategoryID", model.CategoryID);
+                cmd.Parameters.AddWithValue("@QuantityPerUnit", model.QuantityPerUnit);
+                cmd.Parameters.AddWithValue("@UnitPrice", model.UnitPrice);
+                cmd.Parameters.AddWithValue("@UnitsInStock", model.UnitsInStock);
+                cmd.Parameters.AddWithValue("@UnitsOnOrder", model.UnitsOnOrder);
+                cmd.Parameters.AddWithValue("@ReorderLevel", model.ReorderLevel);
+                cmd.Parameters.AddWithValue("@Discontinued", model.Discontinued);
+                cmd.Parameters.AddWithValue("@Barcode", model.Barcode);
+                cmd.Parameters.AddWithValue("@IsFastProduct", model.IsFastProduct);
+                cmd.Parameters.AddWithValue("@ImagePath", model.ImagePath);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
         #endregion
 
         #region Supplier Functions

@@ -39,7 +39,7 @@ namespace AgeOfTicaret
             cb_tedarikci.DisplayMember = "companyName";
             cb_tedarikci.DataSource = dm.SupplierList();
 
-
+            openFileDialog1.Filter = "Resim Dosyası|*.jpg|Png Dosyası|*.png|Jpeg Dosyası|*.jpeg";
         }
 
         private void GridDoldur()
@@ -55,7 +55,7 @@ namespace AgeOfTicaret
             dt.Columns.Add("Stok");
             dt.Columns.Add("Fiyat");
             dt.Columns.Add("Satış Durum");
-            dt.Columns.Add("Ürün Resim", typeof(byte[]));
+            //dt.Columns.Add("Ürün Resim", typeof(byte[]));
            
 
             for (int i = 0; i < urunler.Count; i++)
@@ -70,14 +70,59 @@ namespace AgeOfTicaret
                 r["Stok"] = urunler[i].UnitsInStock;
                 r["Fiyat"] = urunler[i].UnitPrice;
                 
-                Image img = Image.FromFile("../../ProductImages/" + urunler[i].ImagePath);
-                MemoryStream ms = new MemoryStream();
-                img.Save(ms, ImageFormat.Gif);
-                r["Ürün Resim"] = ms.ToArray();
+                //Image img = Image.FromFile("../../ProductImages/" + urunler[i].ImagePath);
+                //MemoryStream ms = new MemoryStream();
+                //img.Save(ms, ImageFormat.Gif);
+                //r["Ürün Resim"] = ms.ToArray();
                 dt.Rows.Add(r);
                 
             }
             dgv_products.DataSource = dt;
+        }
+
+        private void btn_ekle_Click(object sender, EventArgs e)
+        {
+            Product model = new Product();
+            model.ProductName = tb_isim.Text;
+            model.CategoryID = Convert.ToInt32(cb_kategori.SelectedValue);
+            model.SupplierID = Convert.ToInt32(cb_tedarikci.SelectedValue);
+            model.UnitPrice = Convert.ToDecimal(tb_fiyat.Text);
+            model.Barcode = tb_barkod.Text;
+            model.Discontinued = !cb_satista.Checked;
+
+            if (!string.IsNullOrEmpty(pb_resim.ImageLocation))
+            {
+                FileInfo fi = new FileInfo(pb_resim.ImageLocation);
+                string name = Guid.NewGuid() + fi.Extension;
+                fi.CopyTo("../../ProductImages/" + name);
+                model.ImagePath = name;
+            }
+            else
+            {
+                model.ImagePath = "product.png";
+            }
+            model.IsFastProduct = cb_fast.Checked;
+            model.QuantityPerUnit = tb_birimbasinamiktar.Text;
+            model.ReorderLevel = Convert.ToInt16(tb_guvenlikstok.Text);
+            model.UnitsInStock = Convert.ToInt16(tb_stok.Text);
+            model.UnitsOnOrder = Convert.ToInt16(0);
+            if (dm.AddProduct(model))
+            {
+                MessageBox.Show("Sanırım Başardık :)))");
+            }
+            else
+            {
+                MessageBox.Show("Birşeyler Ters Gitti...");
+            }
+            GridDoldur();
+        }
+
+        private void pb_resim_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                pb_resim.ImageLocation = openFileDialog1.FileName; 
+            }
         }
     }
 }

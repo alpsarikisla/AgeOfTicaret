@@ -55,6 +55,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tb_ID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cb_fast = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_products)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_resim)).BeginInit();
@@ -79,6 +82,7 @@
             this.groupBox1.Controls.Add(this.btn_ekle);
             this.groupBox1.Controls.Add(this.btn_tedarikciEkle);
             this.groupBox1.Controls.Add(this.btn_kategoriEkle);
+            this.groupBox1.Controls.Add(this.cb_fast);
             this.groupBox1.Controls.Add(this.cb_satista);
             this.groupBox1.Controls.Add(this.cb_tedarikci);
             this.groupBox1.Controls.Add(this.cb_kategori);
@@ -86,6 +90,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.tb_guvenlikstok);
             this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.tb_fiyat);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label8);
@@ -108,11 +113,14 @@
             // 
             // pb_resim
             // 
+            this.pb_resim.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pb_resim.Location = new System.Drawing.Point(655, 29);
             this.pb_resim.Name = "pb_resim";
             this.pb_resim.Size = new System.Drawing.Size(116, 126);
+            this.pb_resim.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_resim.TabIndex = 6;
             this.pb_resim.TabStop = false;
+            this.pb_resim.Click += new System.EventHandler(this.pb_resim_Click);
             // 
             // btn_ekle
             // 
@@ -122,6 +130,7 @@
             this.btn_ekle.TabIndex = 5;
             this.btn_ekle.Text = "Ekle";
             this.btn_ekle.UseVisualStyleBackColor = true;
+            this.btn_ekle.Click += new System.EventHandler(this.btn_ekle_Click);
             // 
             // btn_tedarikciEkle
             // 
@@ -316,6 +325,29 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "ID:";
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(365, 161);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(52, 13);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Hızlı Satış";
+            // 
+            // cb_fast
+            // 
+            this.cb_fast.AutoSize = true;
+            this.cb_fast.Location = new System.Drawing.Point(438, 159);
+            this.cb_fast.Name = "cb_fast";
+            this.cb_fast.Size = new System.Drawing.Size(47, 17);
+            this.cb_fast.TabIndex = 3;
+            this.cb_fast.Text = "Ekle";
+            this.cb_fast.UseVisualStyleBackColor = true;
+            // 
             // UrunIslemleriForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -363,5 +395,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_ekle;
         private System.Windows.Forms.PictureBox pb_resim;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.CheckBox cb_fast;
+        private System.Windows.Forms.Label label11;
     }
 }
