@@ -211,5 +211,93 @@ namespace DataAccessLayer
         }
 
         #endregion
+
+        #region Product Functions
+
+        public List<Product> ProductList()
+        {
+            List<Product> products = new List<Product>();
+            try
+            {
+                cmd.CommandText = "SELECT p.ProductID, p.ProductName,p.SupplierID, s.CompanyName,p.CategoryID, c.CategoryName, p.QuantityPerUnit, p.UnitPrice, p.UnitsInStock, p.UnitsOnOrder, p.ReorderLevel, p.Discontinued, p.ImagePath  FROM Products AS p JOIN Categories AS c ON c.CategoryID = p.CategoryID JOIN Suppliers AS s ON s.SupplierID = p.SupplierID";
+                cmd.Parameters.Clear();
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Product model = new Product()
+                    {
+                        ProductID = reader.GetInt32(0),
+                        ProductName = reader.GetString(1),
+                        SupplierID = reader.GetInt32(2),
+                        Supplier = reader.GetString(3),
+                        CategoryID = reader.GetInt32(4),
+                        Category = reader.GetString(5),
+                        QuantityPerUnit = !reader.IsDBNull(6) ? reader.GetString(6):"",
+                        UnitPrice =  reader.GetDecimal(7),
+                        UnitsInStock = reader.GetInt16(8),
+                        UnitsOnOrder = reader.GetInt16(9),
+                        ReorderLevel = reader.GetInt16(10),
+                        Discontinued = reader.GetBoolean(11),
+                        ImagePath = !reader.IsDBNull(12) ? reader.GetString(12) : "product.png",
+                    };
+                    products.Add(model);
+                }
+                return products;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        #endregion
+
+        #region Supplier Functions
+
+        public List<Supplier> SupplierList()
+        {
+            List<Supplier> suppliers = new List<Supplier>();
+            try
+            {
+                cmd.CommandText = "SELECT [SupplierID],[CompanyName] ,[ContactName],[ContactTitle],[Address],[City],[Region],[PostalCode],[Country],[Phone],[Fax],[HomePage] FROM Suppliers";
+                cmd.Parameters.Clear();
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Supplier model = new Supplier();
+                    model.ID = reader.GetInt32(0);
+                    model.companyName = reader.GetString(1);
+                    model.contactName = !reader.IsDBNull(2) ? reader.GetString(2) : "";
+                    model.contactTitle = !reader.IsDBNull(3) ? reader.GetString(3) : "";
+                    model.address = !reader.IsDBNull(4) ? reader.GetString(4) : "";
+                    model.city = !reader.IsDBNull(5) ? reader.GetString(5) : "";
+                    model.region = !reader.IsDBNull(6) ? reader.GetString(6) : "";
+                    model.postalCode = !reader.IsDBNull(7) ? reader.GetString(7) : "";
+                    model.country = !reader.IsDBNull(8) ? reader.GetString(8) : "";
+                    model.phone = !reader.IsDBNull(9) ? reader.GetString(9) : "";
+                    model.fax = !reader.IsDBNull(10) ? reader.GetString(10) : "";
+                    model.homePage = !reader.IsDBNull(11) ? reader.GetString(11) : "";
+                    suppliers.Add(model);
+                }
+                return suppliers;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        #endregion
     }
 }

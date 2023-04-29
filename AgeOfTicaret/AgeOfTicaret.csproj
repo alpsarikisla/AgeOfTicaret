@@ -112,10 +112,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <Content Include="ProductImages\product.png" />
     <Content Include="Resimler\20944201.jpg" />
     <Content Include="Resimler\2853458.jpg" />
     <Content Include="Resimler\6843036_courier_deliver_delivery_package_product_icon.ico" />
     <Content Include="Resimler\9043908_category_new_each_icon.ico" />
+    <Content Include="Resimler\product.ico" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
