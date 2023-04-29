@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UrunIslemleriForm));
             this.dgv_products = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -58,9 +59,13 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label11 = new System.Windows.Forms.Label();
             this.cb_fast = new System.Windows.Forms.CheckBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.TSMI_Duzenle = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_Sil = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_products)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_resim)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgv_products
@@ -73,6 +78,7 @@
             this.dgv_products.Name = "dgv_products";
             this.dgv_products.Size = new System.Drawing.Size(1059, 232);
             this.dgv_products.TabIndex = 0;
+            this.dgv_products.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgv_products_MouseDown);
             // 
             // groupBox1
             // 
@@ -311,6 +317,7 @@
             // 
             // tb_ID
             // 
+            this.tb_ID.Enabled = false;
             this.tb_ID.Location = new System.Drawing.Point(78, 30);
             this.tb_ID.Name = "tb_ID";
             this.tb_ID.Size = new System.Drawing.Size(191, 20);
@@ -348,6 +355,27 @@
             this.cb_fast.Text = "Ekle";
             this.cb_fast.UseVisualStyleBackColor = true;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMI_Duzenle,
+            this.TSMI_Sil});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            // 
+            // TSMI_Duzenle
+            // 
+            this.TSMI_Duzenle.Name = "TSMI_Duzenle";
+            this.TSMI_Duzenle.Size = new System.Drawing.Size(180, 22);
+            this.TSMI_Duzenle.Text = "Düzenle";
+            this.TSMI_Duzenle.Click += new System.EventHandler(this.TSMI_Duzenle_Click);
+            // 
+            // TSMI_Sil
+            // 
+            this.TSMI_Sil.Name = "TSMI_Sil";
+            this.TSMI_Sil.Size = new System.Drawing.Size(116, 22);
+            this.TSMI_Sil.Text = "Sil";
+            // 
             // UrunIslemleriForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -363,6 +391,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_resim)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -398,5 +427,8 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.CheckBox cb_fast;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_Duzenle;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_Sil;
     }
 }

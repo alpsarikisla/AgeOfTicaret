@@ -16,9 +16,11 @@ namespace AgeOfTicaret
     public partial class UrunIslemleriForm : Form
     {
         DataModel dm = new DataModel();
+        int index;
         public UrunIslemleriForm()
         {
             InitializeComponent();
+            index = -2;
         }
 
         private void UrunIslemleriForm_Load(object sender, EventArgs e)
@@ -69,7 +71,7 @@ namespace AgeOfTicaret
                 r["Tedarikçi"] = urunler[i].Supplier;
                 r["Stok"] = urunler[i].UnitsInStock;
                 r["Fiyat"] = urunler[i].UnitPrice;
-                
+
                 //Image img = Image.FromFile("../../ProductImages/" + urunler[i].ImagePath);
                 //MemoryStream ms = new MemoryStream();
                 //img.Save(ms, ImageFormat.Gif);
@@ -106,6 +108,7 @@ namespace AgeOfTicaret
             model.ReorderLevel = Convert.ToInt16(tb_guvenlikstok.Text);
             model.UnitsInStock = Convert.ToInt16(tb_stok.Text);
             model.UnitsOnOrder = Convert.ToInt16(0);
+            
             if (dm.AddProduct(model))
             {
                 MessageBox.Show("Sanırım Başardık :)))");
@@ -122,6 +125,43 @@ namespace AgeOfTicaret
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 pb_resim.ImageLocation = openFileDialog1.FileName; 
+            }
+        }
+
+        private void dgv_products_MouseDown(object sender, MouseEventArgs e)
+        {
+            index = dgv_products.HitTest(e.X, e.Y).RowIndex;
+            if (index != -1)
+            {
+                if (e.Button == MouseButtons.Right)
+                {
+                    contextMenuStrip1.Show(dgv_products, e.X, e.Y);
+                    dgv_products.ClearSelection();
+                    dgv_products.Rows[index].Selected = true;
+
+                }
+            }
+            
+        }
+
+        private void TSMI_Duzenle_Click(object sender, EventArgs e)
+        {
+            if (index != -2)
+            {
+                int id = Convert.ToInt32(dgv_products.Rows[index].Cells["ID"].Value);
+                Product model = dm.GetProduct(id);
+                tb_barkod.Text = model.Barcode;
+                tb_birimbasinamiktar.Text = model.QuantityPerUnit;
+                tb_fiyat.Text = model.UnitPrice.ToString();
+                tb_guvenlikstok.Text = model.ReorderLevel.ToString();
+                tb_ID.Text = model.ProductID.ToString();
+                tb_isim.Text = model.ProductName;
+                tb_stok.Text = model.UnitsInStock.ToString();
+                cb_kategori.SelectedValue = model.CategoryID;
+                cb_tedarikci.SelectedValue = model.SupplierID;
+                cb_fast.Checked = model.IsFastProduct;
+                cb_satista.Checked = !model.Discontinued;
+                pb_resim.ImageLocation = "../../ProductImages/" + model.ImagePath;
             }
         }
     }
