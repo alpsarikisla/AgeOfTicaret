@@ -28,3 +28,5 @@ C:\Users\303\Documents\GitHub\AgeOfTicaret\AgeOfTicaret\obj\Debug\AgeOfTicaret.c
 C:\Users\303\Documents\GitHub\AgeOfTicaret\AgeOfTicaret\obj\Debug\AgeOfTicaret.exe
 C:\Users\303\Documents\GitHub\AgeOfTicaret\AgeOfTicaret\obj\Debug\AgeOfTicaret.pdb
 C:\Users\303\Documents\GitHub\AgeOfTicaret\AgeOfTicaret\obj\Debug\AgeOfTicaret.UrunIslemleriForm.resources
+C:\Users\303\Documents\GitHub\AgeOfTicaret\AgeOfTicaret\obj\Debug\AgeOfTicaret.SatisForm.resources
+C:\Users\303\Documents\GitHub\AgeOfTicaret\AgeOfTicaret\obj\Debug\AgeOfTicaret.UcProductView.resources

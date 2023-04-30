@@ -256,6 +256,49 @@ namespace DataAccessLayer
                 con.Close();
             }
         }
+      
+        public List<Product> ProductList(bool isfast)
+        {
+            List<Product> products = new List<Product>();
+            try
+            {
+                cmd.CommandText = "SELECT p.ProductID, p.ProductName,p.SupplierID, s.CompanyName,p.CategoryID, c.CategoryName, p.QuantityPerUnit, p.UnitPrice, p.UnitsInStock, p.UnitsOnOrder, p.ReorderLevel, p.Discontinued, p.ImagePath, p.Barcode FROM Products AS p JOIN Categories AS c ON c.CategoryID = p.CategoryID JOIN Suppliers AS s ON s.SupplierID = p.SupplierID WHERE p.IsFastProduct = 1";
+                cmd.Parameters.Clear();
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Product model = new Product()
+                    {
+                        ProductID = reader.GetInt32(0),
+                        ProductName = reader.GetString(1),
+                        SupplierID = reader.GetInt32(2),
+                        Supplier = reader.GetString(3),
+                        CategoryID = reader.GetInt32(4),
+                        Category = reader.GetString(5),
+                        QuantityPerUnit = !reader.IsDBNull(6) ? reader.GetString(6) : "",
+                        UnitPrice = reader.GetDecimal(7),
+                        UnitsInStock = reader.GetInt16(8),
+                        UnitsOnOrder = reader.GetInt16(9),
+                        ReorderLevel = reader.GetInt16(10),
+                        Discontinued = reader.GetBoolean(11),
+                        ImagePath = !reader.IsDBNull(12) ? reader.GetString(12) : "product.png",
+                        Barcode = reader.IsDBNull(13) ? "" : reader.GetString(13)
+                    };
+                    products.Add(model);
+                }
+                return products;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
 
         public Product GetProduct(int id)
         {
@@ -265,6 +308,45 @@ namespace DataAccessLayer
                 cmd.CommandText = "SELECT p.ProductID, p.ProductName,p.SupplierID, s.CompanyName,p.CategoryID, c.CategoryName, p.QuantityPerUnit, p.UnitPrice, p.UnitsInStock, p.UnitsOnOrder, p.ReorderLevel, p.Discontinued, p.ImagePath, p.Barcode FROM Products AS p JOIN Categories AS c ON c.CategoryID = p.CategoryID JOIN Suppliers AS s ON s.SupplierID = p.SupplierID WHERE p.ProductID=@id";
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@id", id);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                Product model = new Product();
+                while (reader.Read())
+                {
+                    model.ProductID = reader.GetInt32(0);
+                    model.ProductName = reader.GetString(1);
+                    model.SupplierID = reader.GetInt32(2);
+                    model.Supplier = reader.GetString(3);
+                    model.CategoryID = reader.GetInt32(4);
+                    model.Category = reader.GetString(5);
+                    model.QuantityPerUnit = !reader.IsDBNull(6) ? reader.GetString(6) : "";
+                    model.UnitPrice = reader.GetDecimal(7);
+                    model.UnitsInStock = reader.GetInt16(8);
+                    model.UnitsOnOrder = reader.GetInt16(9);
+                    model.ReorderLevel = reader.GetInt16(10);
+                    model.Discontinued = reader.GetBoolean(11);
+                    model.ImagePath = !reader.IsDBNull(12) ? reader.GetString(12) : "product.png";
+                    model.Barcode = reader.IsDBNull(13) ? "" : reader.GetString(13);
+                }
+                return model;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public Product GetProduct(string barcode)
+        {
+            try
+            {
+                cmd.CommandText = "SELECT p.ProductID, p.ProductName,p.SupplierID, s.CompanyName,p.CategoryID, c.CategoryName, p.QuantityPerUnit, p.UnitPrice, p.UnitsInStock, p.UnitsOnOrder, p.ReorderLevel, p.Discontinued, p.ImagePath, p.Barcode FROM Products AS p JOIN Categories AS c ON c.CategoryID = p.CategoryID JOIN Suppliers AS s ON s.SupplierID = p.SupplierID WHERE p.Barcode=@barcode";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@barcode", barcode);
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 Product model = new Product();

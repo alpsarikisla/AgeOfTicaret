@@ -39,6 +39,8 @@
             this.TSMI_UrunEkle = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.TSSL_kullanici = new System.Windows.Forms.ToolStripStatusLabel();
+            this.satışToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.yardımToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -47,7 +49,9 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dosyaToolStripMenuItem,
-            this.ürünİşlemleriToolStripMenuItem});
+            this.ürünİşlemleriToolStripMenuItem,
+            this.satışToolStripMenuItem,
+            this.yardımToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -75,32 +79,32 @@
             // TSMI_Kategoriler
             // 
             this.TSMI_Kategoriler.Name = "TSMI_Kategoriler";
-            this.TSMI_Kategoriler.Size = new System.Drawing.Size(180, 22);
+            this.TSMI_Kategoriler.Size = new System.Drawing.Size(165, 22);
             this.TSMI_Kategoriler.Text = "Kategori İşlemleri";
             this.TSMI_Kategoriler.Click += new System.EventHandler(this.TSMI_Kategoriler_Click);
             // 
             // TSMI_KategoriEkle
             // 
             this.TSMI_KategoriEkle.Name = "TSMI_KategoriEkle";
-            this.TSMI_KategoriEkle.Size = new System.Drawing.Size(180, 22);
+            this.TSMI_KategoriEkle.Size = new System.Drawing.Size(165, 22);
             this.TSMI_KategoriEkle.Text = "Kategori Ekle";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(162, 6);
             // 
             // TSMI_Urunler
             // 
             this.TSMI_Urunler.Name = "TSMI_Urunler";
-            this.TSMI_Urunler.Size = new System.Drawing.Size(180, 22);
+            this.TSMI_Urunler.Size = new System.Drawing.Size(165, 22);
             this.TSMI_Urunler.Text = "Ürünler";
             this.TSMI_Urunler.Click += new System.EventHandler(this.TSMI_Urunler_Click);
             // 
             // TSMI_UrunEkle
             // 
             this.TSMI_UrunEkle.Name = "TSMI_UrunEkle";
-            this.TSMI_UrunEkle.Size = new System.Drawing.Size(180, 22);
+            this.TSMI_UrunEkle.Size = new System.Drawing.Size(165, 22);
             this.TSMI_UrunEkle.Text = "Ürün Ekle";
             // 
             // statusStrip1
@@ -117,6 +121,21 @@
             // 
             this.TSSL_kullanici.Name = "TSSL_kullanici";
             this.TSSL_kullanici.Size = new System.Drawing.Size(0, 17);
+            // 
+            // satışToolStripMenuItem
+            // 
+            this.satışToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.satışToolStripMenuItem.ForeColor = System.Drawing.Color.Green;
+            this.satışToolStripMenuItem.Name = "satışToolStripMenuItem";
+            this.satışToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.satışToolStripMenuItem.Text = "Satış";
+            this.satışToolStripMenuItem.Click += new System.EventHandler(this.satışToolStripMenuItem_Click);
+            // 
+            // yardımToolStripMenuItem
+            // 
+            this.yardımToolStripMenuItem.Name = "yardımToolStripMenuItem";
+            this.yardımToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.yardımToolStripMenuItem.Text = "Yardım";
             // 
             // AnaForm
             // 
@@ -152,5 +171,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel TSSL_kullanici;
+        private System.Windows.Forms.ToolStripMenuItem satışToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem yardımToolStripMenuItem;
     }
 }

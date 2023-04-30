@@ -69,5 +69,28 @@ namespace AgeOfTicaret
                 frm.Show();
             }
         }
+
+        private void satışToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool acikmi = false;
+            Form[] acikformlar = this.MdiChildren;
+
+            foreach (Form item in acikformlar)
+            {
+                if (item.GetType() == typeof(SatisForm))
+                {
+                    acikmi = true;
+                    item.Activate();
+                }
+            }
+
+            if (acikmi == false)
+            {
+                SatisForm frm = new SatisForm();
+                frm.MdiParent = this;
+                //frm.WindowState = FormWindowState.Maximized;
+                frm.Show();
+            }
+        }
     }
 }
